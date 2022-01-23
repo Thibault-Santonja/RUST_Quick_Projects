@@ -16,14 +16,14 @@ fn validate_input(text : String) -> usize {
     match trimmed.parse::<usize>() {
         Ok(convert) => return convert,
         Err(..) => {
-            println!("This is not an integer !");
+            println!("This is not a valid integer (need a positive integer) !");
             return get_input();
         },
     }
 }
 
-fn fizz_buzz(size : usize) {
-    for num in 1..size {
+fn process_fizz_buzz(size : usize) {
+    for num in 1..size+1 {
         match (num%3, num%5) {
             (0, 0) => println!("{} : FizzBuzz", num),
             (_, 0) => println!("{} : Buzz", num),
@@ -34,5 +34,5 @@ fn fizz_buzz(size : usize) {
 }
 
 fn main() {
-    fizz_buzz(get_input());
+    process_fizz_buzz(get_input());
 }
